@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const productRoutes = require('./src/routes/productRoutes.js');
 const userRoutes = require('./src/routes/userRoutes.js');
 const orderRoutes = require('./src/routes/orderRoutes.js');
+const cors = require('cors')
 
 const app = express();
 app.use(express.json());
@@ -12,6 +13,7 @@ mongoose.connect('mongodb+srv://hossam:hossamserver@cluster0.siynfwj.mongodb.net
 		console.log("connected to db");
 	}
 ).catch(err => console.log(err));
+app.use(cors())
 
 app.use('/product',productRoutes);
 app.use('/user',userRoutes);

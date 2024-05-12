@@ -30,7 +30,6 @@ routes.get('/',async (req, res)=>{
         const allProducts =await productModel.find();
         console.log(allProducts);
         res.status(200).json(allProducts);
-
     }catch(err) {
         res.status(500).json({message: err.message});
     }
